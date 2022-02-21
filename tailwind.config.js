@@ -2,7 +2,13 @@ module.exports = {
   content: ['./theme/**/*.php', './theme/**/*.js'],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        red: '#eb2e39',
+        cream: '#e4d9cf',
+        black: '#332e2f',
+        medium: '#b7b7b7',
+        light: '#eeeeee'
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },

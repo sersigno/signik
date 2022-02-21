@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "https://downloads.wordpress.org/plugin/custom-post-type-ui.1.10.1.zip"
-  ],
+  "plugins": [],
   "mappings": {
     "wp-content/plugins": "./plugins",
     "wp-content/themes/signik": "./theme",

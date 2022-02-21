@@ -1,3 +1,5 @@
 # signik
 
-First: 
+$ npm install
+$ npm run wp-env start
+$ gulp
