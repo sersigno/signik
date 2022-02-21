@@ -1,0 +1,113 @@
+/*!
+Theme Name: [SIGNIK] Colegio de Saberes
+Theme URI: 
+Description: 
+Author: Ser Signo
+Author URI: http://sersigno.com/
+Version: 0.1
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'scss.css';
+@import 'glide.core.css';
+@import 'glide.theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+}
+@layer components {
+  .tabTriggers {
+    @apply tw-border-b tw-border-light tw-flex lg:tw-justify-center tw-space-x-6 lg:tw-space-x-10 tw-overflow-x-auto tw-snap-x tw-mx-4 lg:tw-mx-0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .tabTriggers::-webkit-scrollbar {
+    display: none;
+  }
+  .tabTrigger {
+    @apply tw-text-[18px] tw-font-serif tw-text-medium tw-italic hover:tw-text-red tw-transition-colors tw-px-4 tw-py-3 tw-border-b-2 tw-border-transparent tw-flex-shrink-0 tw-snap-start;
+  }
+  .tabTrigger.active {
+    @apply tw-text-red tw-border-red;
+  }
+  .tabContent {
+    @apply tw-animate-fadeIn tw-py-8 lg:tw-py-10 tw-px-4;
+  }
+  .tabContent ul {
+    @apply tw-list-inside tw-list-disc;
+  }
+  .accTrigger {
+    @apply tw-bg-light hover:tw-bg-cream tw-text-black tw-border-l-2 lg:tw-border-l-4 tw-border-red tw-pl-4 lg:tw-pl-6 tw-pr-10 tw-py-3 lg:tw-py-4 tw-transition-colors tw-block tw-w-full tw-mb-2 tw-text-left tw-relative;
+  }
+  .accTrigger.active {
+    @apply tw-bg-black tw-text-white;
+  }
+  .accContent {
+    @apply tw-px-4 tw-mb-2;
+  }
+  .detalles p {
+    @apply tw-mb-3;
+  }
+  .detalles strong {
+    @apply tw-text-[12px] tw-font-normal;
+  }
+  .btn {
+    @apply tw-uppercase tw-italic tw-font-serif tw-border tw-border-solid tw-w-fit tw-text-[14px] tw-py-2 tw-px-6 tw-transition-colors tw-block tw-text-center;
+  }
+  .btn-white {
+    @apply tw-border-white tw-bg-transparent hover:tw-bg-white tw-text-white hover:tw-text-red;
+  }
+  .btn-red {
+    @apply tw-text-red hover:tw-text-white tw-border-red tw-bg-transparent hover:tw-bg-red;
+  }
+  .fechas h1,
+  .fechas h2,
+  .fechas h3 {
+    @apply tw-font-bold tw-text-base tw-not-italic tw-mb-5 tw-text-left tw-font-sans;
+  }
+  .fechas strong {
+    @apply tw-text-[14px] tw-text-medium tw-font-normal tw-inline tw-mb-0;
+  }
+}
+
+.wp-block-columns:last-child {
+  @apply tw-mb-0;
+}
+.wp-block-column {
+  @apply tw-mb-8 lg:tw-mb-0;
+}
+.wp-block-column iframe {
+  @apply tw-aspect-[4/3] lg:tw-aspect-auto lg:tw-h-full tw-w-full lg:tw-pl-8;
+}
+.wp-block-column p {
+  @apply tw-mb-4;
+}
+.wp-block-embed__wrapper iframe {
+  @apply tw-aspect-video tw-w-full tw-h-auto;
+}
+.wp-block-image img {
+  @apply tw-mx-auto tw-max-w-full tw-w-full tw-block tw-mb-7;
+}
+.wp-block-file a {
+  @apply tw-uppercase tw-font-serif tw-border tw-text-red hover:tw-text-white tw-border-solid tw-border-red tw-text-center tw-text-[14px] tw-py-2 tw-px-8 tw-w-fit tw-italic tw-mt-8 tw-block tw-bg-transparent hover:tw-bg-red tw-transition-colors;
+}
+
+.glide__slides.fade {
+  transform: none !important;
+  width: auto !important;
+  display: grid;
+  grid-template-areas: 'slide';
+}
+.glide__slide.fade {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  grid-area: slide;
+}
+.glide__slide--active.fade {
+  z-index: 1;
+  opacity: 1;
+}

@@ -1,0 +1,11 @@
+Funcionalidad de búsqueda
+
+
+****************************
+DONE 
+****************************
+Fotos finales en page titles
+Quitar las tabs para Los diplomados y ajustar sus contenidos 
+Ajustar las listas ordenadas (ol) dentro de los textos de posgrados porque salen sin números
+Resolver los títulos dentro de las tabs en posgrados
+Datos finales en el formulario de preinscripción

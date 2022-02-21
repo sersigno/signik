@@ -1,0 +1,241 @@
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+  padding: 10px 10px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+.hamburger:hover {
+  opacity: 1;
+}
+.hamburger.is-active:hover {
+  opacity: 1;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #eb2e39;
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -1px;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 2px;
+  background-color: #b7b7b7;
+  border-radius: 0;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+.hamburger-inner::before {
+  top: -8px;
+}
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+/*
+ * Collapse
+ */
+.hamburger--collapse .hamburger-inner {
+  top: auto;
+  bottom: 0;
+  transition-duration: 0.13s;
+  transition-delay: 0.13s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger--collapse .hamburger-inner::after {
+  top: -16px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+}
+.hamburger--collapse .hamburger-inner::before {
+  transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger--collapse.is-active .hamburger-inner {
+  transform: translate3d(0, -8px, 0) rotate(-45deg);
+  transition-delay: 0.22s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.hamburger--collapse.is-active .hamburger-inner::after {
+  top: 0;
+  opacity: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+}
+.hamburger--collapse.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(-90deg);
+  transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#main-nav {
+  @apply tw-animate-fadeIn lg:tw-animate-none;
+}
+#main-nav > .menu-item a {
+  @apply hover:tw-text-red tw-transition-colors tw-uppercase tw-text-[15px] tw-font-bold;
+}
+#main-nav > .menu-item.current-menu-item > a, #main-nav > .menu-item.current-menu-ancestor > a {
+  @apply tw-text-red;
+}
+
+#main-nav .menu-item-has-children {
+  position: relative;
+}
+#main-nav .menu-item-has-children > a {
+  @apply tw-hidden lg:tw-block;
+}
+#main-nav .menu-item-has-children > a::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.562' height='7.225' viewBox='0 0 9.562 7.225'%3E%3Cpath id='Path_1' data-name='Path 1' d='M944.652,98.653l4,5,4-5' transform='translate(-943.872 -98.028)' fill='none' stroke='%23eb2e39' stroke-width='2'/%3E%3C/svg%3E%0A");
+  @apply tw-ml-2 tw-inline-block tw-relative tw-top-[-1px];
+}
+#main-nav .menu-item-has-children:hover > a {
+  @apply tw-text-red;
+}
+#main-nav .menu-item-has-children:hover .sub-menu {
+  @apply lg:tw-block;
+}
+#main-nav .menu-item-has-children .sub-menu {
+  @apply tw-flex tw-flex-col tw-items-center tw-space-y-5 lg:tw-space-y-0 lg:tw-hidden lg:tw-absolute tw-top-auto tw-left-0 tw-bg-white lg:tw-pt-2 tw-min-w-full lg:tw-z-20 lg:tw-animate-fadeIn;
+}
+#main-nav .menu-item-has-children .sub-menu .menu-item {
+  @apply tw-mb-px last:tw-mb-0;
+}
+#main-nav .menu-item-has-children .sub-menu .menu-item a {
+  @apply lg:tw-flex lg:tw-items-center lg:tw-relative lg:tw-px-4 lg:tw-h-[45px] lg:tw-border-l-2 lg:tw-border-solid lg:tw-border-red lg:tw-bg-cream lg:tw-z-10 lg:tw-normal-case lg:tw-font-normal;
+}
+#main-nav .menu-item-has-children .sub-menu .menu-item a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  z-index: -1;
+  @apply tw-bg-red;
+}
+#main-nav .menu-item-has-children .sub-menu .menu-item a:hover {
+  @apply lg:tw-text-white;
+  transition: all linear 0.2s;
+}
+#main-nav .menu-item-has-children .sub-menu .menu-item a:hover::before {
+  transition: all ease-in-out 0.3s;
+  @apply lg:tw-w-full;
+}
+
+.gform_fields {
+  @apply tw-grid md:tw-grid-cols-6 tw-gap-x-6 tw-gap-y-6 md:tw-gap-y-9;
+}
+
+.gfield {
+  @apply md:tw-col-span-2 tw-block;
+}
+.gfield.half {
+  @apply md:tw-col-span-3;
+}
+.gfield.full {
+  @apply md:tw-col-span-6;
+}
+
+.gfield:focus-within .gfield_label {
+  @apply tw-text-red;
+}
+
+.gfield_label {
+  @apply tw-text-[14px] tw-text-medium tw-font-normal tw-block tw-mb-2 tw-transition-colors;
+}
+
+.gfield input,
+.gfield select,
+.gfield textarea {
+  @apply tw-border-solid tw-border-medium tw-border-b tw-block tw-w-full tw-h-7 focus:tw-border-red focus-visible:tw-outline-none tw-bg-transparent;
+}
+
+.gform_button {
+  @apply tw-uppercase tw-font-serif tw-border tw-border-solid tw-border-red tw-text-red tw-w-fit tw-text-[14px] tw-py-2 tw-px-6 tw-mt-12 tw-italic tw-w-fit tw-block tw-text-red hover:tw-text-white tw-border-red tw-bg-transparent hover:tw-bg-red;
+}
+
+.center .gform_button {
+  @apply tw-mx-auto lg:tw-mb-8;
+}
+
+.gform_confirmation_message {
+  @apply tw-text-lg tw-text-center tw-text-red tw-font-bold tw-bg-light tw-shadow tw-border-medium tw-border-solid tw-border-2 tw-rounded tw-p-8 tw-min-h-[200px] tw-flex tw-items-center;
+}
+
+.validation_error {
+  @apply tw-text-red tw-mb-6;
+}
+
+.validation_message {
+  @apply tw-text-sm tw-text-red;
+}
+
+.accTrigger::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14.362' height='10.225' viewBox='0 0 14.362 10.225'%3E%3Cpath id='Path_2' data-name='Path 2' d='M944.652,106.653l6.4-8,6.4,8' transform='translate(-943.871 -97.052)' fill='none' stroke='%23EB2E39' stroke-width='2'/%3E%3C/svg%3E%0A");
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%) rotate(0);
+  transition: all ease-in-out 0.35s;
+}
+.accTrigger.active::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14.362' height='10.225' viewBox='0 0 14.362 10.225'%3E%3Cpath id='Path_2' data-name='Path 2' d='M944.652,106.653l6.4-8,6.4,8' transform='translate(-943.871 -97.052)' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E%0A");
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+.normalizeText h2,
+.normalizeText h3 {
+  @apply tw-text-red tw-text-lg lg:tw-text-xl tw-mb-7;
+}
+.normalizeText p {
+  @apply tw-mb-4;
+}
+.normalizeText ul {
+  @apply tw-list-inside tw-list-disc tw-mb-4;
+}
+.normalizeText ol {
+  @apply tw-list-inside tw-list-decimal;
+}
+.normalizeText blockquote {
+  @apply tw-italic tw-border-cream tw-py-1 tw-mb-7;
+}
+.normalizeText blockquote.has-text-align-left {
+  @apply tw-border-l-4 tw-pl-4;
+}
+.normalizeText blockquote.has-text-align-right {
+  @apply tw-border-r-4 tw-pr-4;
+}
+.normalizeText blockquote p {
+  @apply last:tw-mb-0;
+}
