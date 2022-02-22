@@ -16,30 +16,22 @@ add_action('pickTemplate', 'templatePicker');
 
 
 
-function openSection()
+function openSection($classes = '')
 {
-    $settings = get_sub_field('section_settings');
     $attributes = get_sub_field('attributes');
-    $background = get_sub_field('background');
+    $attributes ? extract($attributes, EXTR_PREFIX_SAME, "attr") : '';
+
     $type = get_sub_field('type');
     $layout = get_row_layout() . '-' . ($type ? $type : 'default');
 
-    if ($settings) extract($settings, EXTR_PREFIX_SAME, "settings");
-    if ($attributes) extract($attributes, EXTR_PREFIX_SAME, "attr");
-    if ($background) extract($background, EXTR_PREFIX_SAME, "bg");
-
-    if ($color_scheme == 'bg-dark' || $color_scheme == 'bg-darker') {
-        $text_color = 'text-white';
-    }
-
-    echo ('<section ' . ($id ? ' id="' . $id . '"' : '') . ' class="' . $layout . ($classes ? ' ' . $classes . ' ' : '') . ($color_scheme ? $color_scheme . ' ' . $text_color . ' ' : '') . ($background_check && $color_scheme ? 'py-global' : 'my-global') . '">');
+    echo ('<section ' . ($id ? 'id="' . $id . '" ' : '') . 'class="' . $layout . ($classes ? ' ' . $classes : '') . ($attr_classes ? ' ' . $attr_classes : '') . '">');
 }
+add_action('sectionOpener', 'openSection');
+
 function closeSection()
 {
     echo '</section>';
 }
-
-add_action('sectionOpener', 'openSection');
 add_action('sectionCloser', 'closeSection');
 
 
@@ -75,7 +67,7 @@ Display logo
 function renderHeaderLogo()
 {
     $logo = get_field('logo', 'options');
-    extract($logo, EXTR_PREFIX_SAME, "logo");
+    $logo ? extract($logo, EXTR_PREFIX_SAME, "logo") : '';
 
     if (isset($logo_svg_sm) && isset($logo_svg_lg)) {
         echo '<div class="d-lg-none">' . $logo_svg_sm . '</div><div class="d-none d-lg-block">' . $logo_svg_lg . '</div>';

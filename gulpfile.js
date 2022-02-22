@@ -10,7 +10,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 function scss() {
-  return src('./src/styles/scss.scss')
+  return src('./src/styles/scss/scss.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./src/styles/'));
 }

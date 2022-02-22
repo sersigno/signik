@@ -17,38 +17,17 @@
 
 <?php
 $logo = get_field('logo', 'options');
-extract($logo, EXTR_PREFIX_SAME, "logo");
+//extract($logo, EXTR_PREFIX_SAME, "logo");
 
 $contact = get_field('contact_data', 'options');
-extract($contact, EXTR_PREFIX_SAME, "cd");
+//extract($contact, EXTR_PREFIX_SAME, "cd");
 
 $social = get_field('social', 'options');
-extract($social, EXTR_PREFIX_SAME, "social");
+//extract($social, EXTR_PREFIX_SAME, "social");
 ?>
 
 <body <?php body_class('tw-font-sans') ?>>
     <header id="header" class="">
-        <div id="top-bar" class="tw-bg-red tw-text-white tw-hidden md:tw-block">
-            <div class="tw-max-w-screen-xl tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-py-2 lg:tw-py-2">
-                <nav class="tw-mr-auto tw-flex tw-items-center">
-                    <?php foreach ($social as $key => $value) :
-                        $fa = ($key == 'facebook') ? $fa = 'facebook-f' : $fa = $key;
-                        echo $value ? '<a href="' . $value . '" target="_blank" class="tw-px-4 hover:tw-opacity-80 tw-transition-opacity" rel="noreferrer noopener" aria-label="' . $key . '"><i class="fab fa-' . $fa . '"></i></a>' : '';
-                    endforeach; ?>
-                </nav>
-                <nav class="tw-text-[14px] tw-flex tw-items-center tw-font-serif tw-space-x-8">
-                    <?php
-                    echo $contact['email'] ? '<div><i class="fa fa-envelope tw-mr-3"></i><a href="mailto:' . $contact['email'] . '" target="_blank" class="hover:tw-opacity-80 tw-transition-opacity" rel="noreferrer noopener" aria-label="' . $contact['email'] . '">' . $contact['email'] . '</a></div>' : '';
-                    echo $contact['phone_1'] ? '<div><i class="fa fa-phone tw-mr-3"></i>
-                    <a href="tel:' . $contact['phone_1'] . '" target="_blank" class="hover:tw-opacity-80 tw-transition-opacity" rel="noreferrer noopener" aria-label="' . $contact['phone_1'] . '">' . $contact['phone_1'] . '</a> / 
-                    <a href="tel:' . $contact['phone_2'] . '" target="_blank" class="hover:tw-opacity-80 tw-transition-opacity" rel="noreferrer noopener" aria-label="' . $contact['phone_2'] . '">' . $contact['phone_2'] . '</a></div>' : '';
-                    ?>
-                </nav>
-                <button id="search-trigger" class="tw-flex tw-items-center tw-px-4 hover:tw-opacity-80 tw-transition-opacity tw-hidden tw-ml-8" aria-label="Buscar">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
         <nav class="tw-max-w-screen-xl tw-mx-auto lg:tw-flex tw-items-center tw-py-4 lg:tw-py-7 tw-px-4 xl:tw-px-0">
             <a class="tw-w-[260px] lg:tw-w-[324px] tw-inline-block tw-z-50 tw-relative" href="<?php bloginfo('url'); ?>">
                 <?php do_action('headerLogoPicker'); ?>

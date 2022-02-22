@@ -1,40 +1,40 @@
 <?php
 $contact = get_field('contact_data', 'options');
-extract($contact, EXTR_PREFIX_SAME, "cd");
+$contact ? extract($contact, EXTR_PREFIX_SAME, "cd") : '';
 
 $social = get_field('social', 'options');
-extract($social, EXTR_PREFIX_SAME, "social");
+$social ? extract($social, EXTR_PREFIX_SAME, "social") : '';
 ?>
 <footer id="footer" class="tw-bg-red lg:tw-bg-transparent">
     <div class="tw-max-w-screen-xl tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-py-8 lg:tw-py-10 tw-px-4 lg:tw-px-0 tw-text-white lg:tw-text-black">
         <div class="tw-hidden lg:tw-block  lg:tw-w-2/6">
             <?php if (have_rows('posgrados', 'options')) : ?>
-                <h4 class="tw-text-red tw-italic tw-font-serif tw-mb-4 lg:tw-mb-7 tw-font-bold">Posgrados</h4>
+                <h4 class="tw-text-blue tw-italic tw-font-serif tw-mb-4 lg:tw-mb-7 tw-font-bold">Posgrados</h4>
                 <nav>
                     <?php while (have_rows('posgrados', 'options')) : the_row();
                         $id = get_sub_field('posgrado');
                         $title = get_the_title($id);
                     ?>
-                        <a href="<?php echo get_the_permalink($id) ?>" class="tw-text-[15px] tw-flex before:tw-content-['•'] before:tw-text-cream before:tw-mr-3 before:tw-block hover:tw-text-red tw-transition-colors"><?php echo $title ?></a>
+                        <a href="<?php echo get_the_permalink($id) ?>" class="tw-text-[15px] tw-flex before:tw-content-['•'] before:tw-text-cream before:tw-mr-3 before:tw-block hover:tw-text-blue tw-transition-colors"><?php echo $title ?></a>
                     <?php endwhile; ?>
                 </nav>
             <?php endif; ?>
         </div>
         <div class="tw-hidden lg:tw-block lg:tw-w-2/6 lg:tw-ml-12">
             <?php if (have_rows('diplomados', 'options')) : ?>
-                <h4 class="tw-text-red tw-italic tw-font-serif tw-mb-4 lg:tw-mb-7 tw-font-bold">Diplomados</h4>
+                <h4 class="tw-text-blue tw-italic tw-font-serif tw-mb-4 lg:tw-mb-7 tw-font-bold">Diplomados</h4>
                 <nav>
                     <?php while (have_rows('diplomados', 'options')) : the_row();
                         $id = get_sub_field('diplomado');
                         $title = get_the_title($id);
                     ?>
-                        <a href="<?php echo get_the_permalink($id) ?>" class="tw-text-[15px] tw-flex before:tw-content-['•'] before:tw-text-cream before:tw-mr-3 before:tw-block hover:tw-text-red tw-transition-colors"><?php echo $title ?></a>
+                        <a href="<?php echo get_the_permalink($id) ?>" class="tw-text-[15px] tw-flex before:tw-content-['•'] before:tw-text-cream before:tw-mr-3 before:tw-block hover:tw-text-blue tw-transition-colors"><?php echo $title ?></a>
                     <?php endwhile; ?>
                 </nav>
             <?php endif; ?>
         </div>
         <div class="lg:tw-w-1/6 lg:tw-ml-auto lg:tw-text-center">
-            <h4 class="tw-text-white lg:tw-text-red tw-italic tw-font-serif tw-font-bold tw-mb-3 lg:tw-mb-6">Conoce</h4>
+            <h4 class="tw-text-white lg:tw-text-blue tw-italic tw-font-serif tw-font-bold tw-mb-3 lg:tw-mb-6">Conoce</h4>
             <a class="tw-text-2xl lg:tw-text-[2rem] tw-whitespace-normal lg:tw-max-w-[160px] tw-block lg:tw-mx-auto tw-leading-none tw-transition-opacity tw-font-serif hover:tw-opacity-80" href="https://territoriodedialogos.com/" rel="noreferrer noopener">
                 Territorio de diálogos
                 <small class="tw-text-base tw-mt-[5px] tw-leading-none tw-block">Revista semestral</small>
@@ -65,7 +65,7 @@ extract($social, EXTR_PREFIX_SAME, "social");
     <div class="tw-bg-black tw-text-white tw-text-[11px] tw-italic tw-font-serif tw-py-4 lg:tw-py-2 tw-px-4 tw-text-center lg:tw-text-left">
         <div class="tw-max-w-screen-xl tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-justify-between">
             <p class="tw-mt-1 lg:tw-mt-0 tw-order-last lg:tw-order-first"><span class="tw-opacity-40">Diseño y desarrollo por</span> <a href="http://sersigno.com" class="tw-opacity-40 hover:tw-opacity-100 tw-transition-opacity">Ser Signo</a></p>
-            <p><?php echo '© ' . date("Y") . ' Colegio de Saberes | <a href="' . get_bloginfo("url") . '/politica-privacidad/" class="hover:tw-text-red tw-transition-colors" rel="noreferrer noopener">Aviso de privacidad</a>' ?></p>
+            <p><?php echo '© ' . date("Y") . ' Colegio de Saberes | <a href="' . get_bloginfo("url") . '/politica-privacidad/" class="hover:tw-text-blue tw-transition-colors" rel="noreferrer noopener">Aviso de privacidad</a>' ?></p>
         </div>
     </div>
 </footer>

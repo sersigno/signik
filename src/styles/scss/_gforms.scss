@@ -1,0 +1,48 @@
+//Layout
+.gform_fields {
+  @apply tw-grid md:tw-grid-cols-6 tw-gap-x-6 tw-gap-y-6 md:tw-gap-y-9;
+}
+.gfield {
+  @apply md:tw-col-span-2 tw-block;
+  &.half {
+    @apply md:tw-col-span-3;
+  }
+  &.full {
+    @apply md:tw-col-span-6;
+  }
+}
+
+//Fields and labels
+.gfield:focus-within {
+  .gfield_label {
+    @apply tw-text-blue;
+  }
+}
+.gfield_label {
+  @apply tw-text-[14px] tw-text-medium tw-font-normal tw-block tw-mb-2 tw-transition-colors;
+}
+.gfield {
+  input,
+  select,
+  textarea {
+    @apply tw-border-solid tw-border-medium tw-border-b tw-block tw-w-full tw-h-7 focus:tw-border-red focus-visible:tw-outline-none tw-bg-transparent;
+  }
+}
+
+.gform_button {
+  @apply tw-uppercase tw-font-serif tw-border tw-border-solid tw-border-red tw-text-blue tw-w-fit tw-text-[14px] tw-py-2 tw-px-6 tw-mt-12 tw-italic tw-w-fit tw-block tw-text-blue hover:tw-text-white tw-border-red tw-bg-transparent hover:tw-bg-red;
+}
+.center .gform_button {
+  @apply tw-mx-auto lg:tw-mb-8;
+}
+
+// Confirmation
+.gform_confirmation_message {
+  @apply tw-text-lg tw-text-center tw-text-blue tw-font-bold tw-bg-light tw-shadow tw-border-medium tw-border-solid tw-border-2 tw-rounded tw-p-8 tw-min-h-[200px] tw-flex tw-items-center;
+}
+.validation_error {
+  @apply tw-text-blue tw-mb-6;
+}
+.validation_message {
+  @apply tw-text-sm tw-text-blue;
+}
