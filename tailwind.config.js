@@ -2,8 +2,6 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./theme/**/*.php', './theme/**/*.js'],
-  prefix: 'tw-',
-  important: true,
   theme: {
     extend: {
       colors: {
@@ -16,8 +14,13 @@ module.exports = {
           to: { opacity: 1 }
         }
       },
+      backgroundImage: {
+        radialMask:
+          'radial-gradient(circle closest-side at center, rgba(255,255,255,0) 0, rgba(255,255,255,1) 100%)'
+      },
       animation: {
-        fadeIn: 'fadeIn .5s ease-in-out'
+        fadeIn: 'fadeIn .5s ease-in-out',
+        colorFader: 'colorFader 10s linear infinite'
       },
       fontFamily: {
         slab: ['rockwell-nova', 'sans-serif']
@@ -27,6 +30,13 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       addComponents({
+        '.sectionTitle': {
+          fontSize: '100px',
+          lineHeight: '1',
+          marginBottom: '2rem',
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        },
         '.tabTriggers': {
           msOverflowStyle: 'none',
           scrollbarWidth: 'none'

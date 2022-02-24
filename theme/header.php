@@ -15,35 +15,34 @@
     <?php wp_head() ?>
 </head>
 
-<?php
-$logo = get_field('logo', 'options');
-//extract($logo, EXTR_PREFIX_SAME, "logo");
-
-$contact = get_field('contact_data', 'options');
-//extract($contact, EXTR_PREFIX_SAME, "cd");
-
-$social = get_field('social', 'options');
-//extract($social, EXTR_PREFIX_SAME, "social");
-?>
-
-<body <?php body_class('tw-font-sans') ?>>
-    <header id="header" class="">
-        <nav class="tw-max-w-screen-xl tw-mx-auto lg:tw-flex tw-items-center tw-py-4 lg:tw-py-7 tw-px-4 xl:tw-px-0">
-            <a class="tw-w-[260px] lg:tw-w-[324px] tw-inline-block tw-z-50 tw-relative" href="<?php bloginfo('url'); ?>">
+<body <?php body_class('font-slab text-blue') ?>>
+    <header id="header" class="px-5">
+        <div class="py-8 border-b border-blue flex items-center justify-between">
+            <a class=" tw-w-[260px] lg:tw-w-[324px] tw-inline-block tw-z-50 tw-relative" href="<?php bloginfo('url'); ?>">
                 <?php do_action('headerLogoPicker'); ?>
             </a>
-            <button id="ham" class="hamburger hamburger--collapse tw-float-right lg:tw-hidden tw-z-50 tw-relative tw-mt-3" type="button">
+            <button id="ham" class="hamburger hamburger--collapse" type="button">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-            <?php wp_nav_menu(array(
-                'theme_location' => 'main-nav',
-                'container' => '',
-                'menu_class' => ' tw-hidden lg:tw-flex lg:tw-ml-auto tw-fixed lg:tw-relative tw-top-0 tw-left-0 tw-w-full lg:tw-w-fit tw-h-full lg:tw-h-fit tw-flex-col lg:tw-flex-row ' .
-                    'tw-justify-center tw-items-center tw-space-y-5 lg:tw-space-y-0 lg:tw-space-x-6 ' .
-                    'tw-list-none  tw-bg-white tw-z-20',
-                'menu_id' => 'main-nav',
-            )); ?>
-        </nav>
+        </div>
+        <p class="text-xl mt-5 mb-4">Soluciones significativas en comunicación visual</p>
+        <ul>
+            <li>Front-end Developer</li>
+            <li>UX/UI</li>
+            <li>Worpress</li>
+            <li>Branding</li>
+            <li>Graphic Design</li>
+        </ul>
     </header>
+    <nav class="hidden">
+        <?php wp_nav_menu(array(
+            'theme_location' => 'main-nav',
+            'container' => '',
+            'menu_class' => 'hidden lg:tw-ml-auto tw-fixed lg:tw-relative tw-top-0 tw-left-0 tw-w-full lg:tw-w-fit tw-h-full lg:tw-h-fit tw-flex-col lg:tw-flex-row ' .
+                'tw-justify-center tw-items-center tw-space-y-5 lg:tw-space-y-0 lg:tw-space-x-6 ' .
+                'tw-list-none  tw-bg-white tw-z-20',
+            'menu_id' => 'main-nav',
+        )); ?>
+    </nav>

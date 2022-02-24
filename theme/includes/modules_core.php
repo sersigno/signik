@@ -69,23 +69,10 @@ function renderHeaderLogo()
     $logo = get_field('logo', 'options');
     $logo ? extract($logo, EXTR_PREFIX_SAME, "logo") : '';
 
-    if (isset($logo_svg_sm) && isset($logo_svg_lg)) {
-        echo '<div class="d-lg-none">' . $logo_svg_sm . '</div><div class="d-none d-lg-block">' . $logo_svg_lg . '</div>';
-    } elseif (isset($logo_svg_sm) && !isset($logo_svg_lg)) {
-        echo $logo_svg_sm;
-    } elseif (!isset($logo_svg_sm) && isset($logo_svg_lg)) {
-        echo $logo_svg_lg;
-    } elseif (!isset($logo_svg_sm) && !isset($logo_svg_lg)) {
-        if (isset($logo_sm) && isset($logo_lg)) {
-            echo ('<img src="' . $logo_sm['url'] . '" alt="' . get_bloginfo('name') . '" class="d-block d-lg-none img-fluid">');
-            echo ('<img src="' . $logo_lg['url'] . '" alt="' . get_bloginfo('name') . '" class="d-none d-lg-block img-fluid">');
-        } elseif (isset($logo_sm) && !isset($logo_lg)) {
-            echo ('<img src="' . $logo_sm['url'] . '" alt="' . get_bloginfo('name') . '" class="d-block img-fluid">');
-        } elseif (!isset($logo_sm) && isset($logo_lg)) {
-            echo ('<img src="' . $logo_lg['url'] . '" alt="' . get_bloginfo('name') . '" class="d-block img-fluid">');
-        } else {
-            bloginfo('name');
-        }
+    if (isset($logo_logo)) {
+        echo $logo_logo;
+    } else {
+        bloginfo('name');
     }
 }
 add_action('headerLogoPicker', 'renderHeaderLogo', 10, 1);

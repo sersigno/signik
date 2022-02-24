@@ -1,5 +1,5 @@
+@import 'hamburgers';
 //@import 'nav';
-//@import 'hamburgers';
 //@import 'gforms';
 
 .accTrigger {
@@ -14,5 +14,13 @@
   &.active::after {
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14.362' height='10.225' viewBox='0 0 14.362 10.225'%3E%3Cpath id='Path_2' data-name='Path 2' d='M944.652,106.653l6.4-8,6.4,8' transform='translate(-943.871 -97.052)' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E%0A");
     transform: translateY(-50%) rotate(-180deg);
+  }
+}
+
+@keyframes colorFader {
+  @for $i from 0 through 360 {
+    #{calc($i/3.6)}% {
+      background-color: hsl($i, 100%, 70%);
+    }
   }
 }
